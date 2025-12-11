@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:nobopeli/config/helper/human_format.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nobopeli/domain/entities/movie.dart';
 
 class MoviesSlideListView extends StatefulWidget {
@@ -59,7 +59,7 @@ class _MoviesSlideListViewState extends State<MoviesSlideListView> {
               scrollDirection: Axis.horizontal,
               itemCount: widget.movies.length,
               itemBuilder: (context, index) {
-                return _Slide(movie: widget.movies[index]);
+                return FadeInRight(child: _Slide(movie: widget.movies[index]));
               },
             ),
           ),
@@ -101,7 +101,10 @@ class _Slide extends StatelessWidget {
                       ),
                     );
                   }
-                  return FadeInRight(child: child);
+                  return GestureDetector(
+                    onTap: () => context.push('/movie/${movie.id}'),
+                    child: FadeInRight(child: child),
+                  );
                 },
                 errorBuilder: (context, error, stackTrace) {
                   return SizedBox(
