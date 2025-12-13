@@ -1,4 +1,5 @@
 import 'package:nobopeli/domain/entities/movie.dart';
+import 'package:nobopeli/infrstructure/models/moviesdb/movie_detail.dart';
 import 'package:nobopeli/infrstructure/models/moviesdb/movie_moviedb.dart';
 
 class MovieMapper {
@@ -21,6 +22,29 @@ class MovieMapper {
     releaseDate: moviedb.releaseDate,
     title: moviedb.title,
     video: moviedb.video,
+    voteAverage: moviedb.voteAverage,
+    voteCount: moviedb.voteCount,
+  );
+
+  static Movie movieDetailsToEntity(MovieDetail moviedb) => Movie(
+    adult: moviedb.adult,
+    backdropPath:
+        (moviedb.backdropPath != '')
+            ? 'https://image.tmdb.org/t/p/w500${moviedb.backdropPath}'
+            : 'https://easimages.basnop.com/default-image_600.png',
+    genreIds: moviedb.genres.map((e) => e.name).toList(),
+    id: moviedb.id,
+    originalLanguage: moviedb.originalLanguage,
+    originalTitle: moviedb.originalTitle,
+    overview: moviedb.overview,
+    popularity: moviedb.popularity,
+    posterPath:
+        (moviedb.posterPath != '')
+            ? 'https://image.tmdb.org/t/p/w500${moviedb.posterPath}'
+            : 'no-poster',
+    releaseDate: moviedb.releaseDate,
+    title: moviedb.title,
+    video: false,
     voteAverage: moviedb.voteAverage,
     voteCount: moviedb.voteCount,
   );

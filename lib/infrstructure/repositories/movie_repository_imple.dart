@@ -25,4 +25,9 @@ class MovieRepositoryImple extends MovieRepository {
   Future<List<Movie>> getUpcoming({int page = 1}) {
     return datasource.getUpcoming(page: page);
   }
+
+  @override
+  Future<Movie> getMovieID(String id) {
+    return datasource.getMovieID(id);
+  }
 }
