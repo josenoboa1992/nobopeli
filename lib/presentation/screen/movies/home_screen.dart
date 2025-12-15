@@ -34,6 +34,21 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     ref.read(upcomingMoviesProvider.notifier).loadNextPage();
   }
 
+  String _getFormattedDate() {
+    final now = DateTime.now();
+    final daysOfWeek = [
+      'Lunes',
+      'Martes',
+      'Miércoles',
+      'Jueves',
+      'Viernes',
+      'Sábado',
+      'Domingo',
+    ];
+    final dayName = daysOfWeek[now.weekday - 1];
+    return '$dayName ${now.day}';
+  }
+
   @override
   Widget build(BuildContext context) {
     final inicialLoading = ref.watch(inicialLoadingProvider);
@@ -60,7 +75,7 @@ class _HomeViewState extends ConsumerState<_HomeView> {
             MoviesSlideListView(
               movies: nowPlayingMovies,
               title: 'En Cines',
-              subtitle: 'Lunes 20',
+              subtitle: _getFormattedDate(),
               loadNextPage: () {
                 ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
               },
