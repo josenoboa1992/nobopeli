@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nobopeli/presentation/providers/movies/movies_providers.dart';
 import 'package:nobopeli/presentation/providers/movies/movies_slide_show_provider.dart';
 import 'package:nobopeli/presentation/providers/providers.dart';
-import 'package:nobopeli/presentation/widgets/shared/custom_bottom_navegation_bar.dart';
 import 'package:nobopeli/presentation/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeScreen extends StatelessWidget {
   static const name = ' home-screen';
@@ -20,7 +18,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _HomeView extends ConsumerStatefulWidget {
-  const _HomeView({super.key});
+  const _HomeView();
 
   @override
   _HomeViewState createState() => _HomeViewState();

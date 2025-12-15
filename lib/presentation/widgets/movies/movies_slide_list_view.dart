@@ -26,13 +26,11 @@ class _MoviesSlideListViewState extends State<MoviesSlideListView> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     scrollController.addListener(() {
       if (widget.loadNextPage == null) return;
       if ((scrollController.position.pixels + 200) >=
           scrollController.position.maxScrollExtent) {
-        print('Cargar siguiente pagina');
         widget.loadNextPage!();
       }
     });
@@ -40,7 +38,6 @@ class _MoviesSlideListViewState extends State<MoviesSlideListView> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -157,9 +154,7 @@ class _Slide extends StatelessWidget {
                 //   style: textstyle?.copyWith(color: Colors.yellow.shade800),
                 // ),
                 Text(
-                  movie.releaseDate != null
-                      ? movie.releaseDate!.year.toString()
-                      : 'N/A',
+                  movie.releaseDate.year.toString(),
                   style: textstyle?.copyWith(color: colors.primary),
                 ),
               ],

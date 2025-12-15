@@ -31,7 +31,7 @@ class Cast {
   final String? character;
   final String creditId;
   final int? order;
-  final StringBuffer? department;
+  final String? department;
   final String? job;
 
   Cast({
@@ -64,7 +64,7 @@ class Cast {
     character: json["character"],
     creditId: json["credit_id"],
     order: json["order"],
-    department: json["department"] ?? '',
+    department: json["department"],
     job: json["job"],
   );
 
